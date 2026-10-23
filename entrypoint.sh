@@ -5,13 +5,19 @@ set -e
 # Fetch host UID, GID, and Username from env variables, or default to 1000/asrl
 USER_ID=${USER_ID:-1000}
 GROUP_ID=${GROUP_ID:-1000}
-USER_NAME=${USER_NAME:-hppeng}
+USER_NAME=${USER_NAME:-ASRL}
+RENDER_GID=990
+RENDER_GROUP=__render
 
 echo "Setting up container user: $USER_NAME ($USER_ID:$GROUP_ID)"
 
 # 1. Create the group if it doesn't exist
 if ! getent group "$USER_NAME" >/dev/null; then
     groupadd -g "$GROUP_ID" "$USER_NAME"
+fi
+
+if ! getent group "$RENDER_GROUP" > /dev/null; then
+    groupadd -g "$RENDER_GID" "$RENDER_GROUP"
 fi
 
 # 2. Create the user if they don't exist
@@ -22,6 +28,8 @@ else
     # If the user exists but home directory is missing, create it
     mkdir -p "/home/$USER_NAME"
 fi
+
+usermod -aG "$RENDER_GROUP,video" ${USER_NAME}
 
 # 3. Ensure the home directory has the correct permissions
 #chown -R "$USER_ID:$GROUP_ID" "/home/$USER_NAME"

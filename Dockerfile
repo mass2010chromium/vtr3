@@ -26,46 +26,44 @@ ENV DEBIAN_FRONTEND=noninteractive
 ## Switch to specified user to create directories
 USER ${USERID}:${GROUPID}
 
-ENV VTRROOT=${HOMEDIR}/ASRL/vtr3
-ENV VTRSRC=${VTRROOT}/src \
+ENV VTRROOT=${HOMEDIR}/ASRL/vtr3 \
+  VTRSRC=${VTRROOT}/src \
   VTRDATA=${VTRROOT}/data \
   VTRTEMP=${VTRROOT}/temp \
   VTRMODELS=${VTRROOT}/models \
   GRIZZLY=${VTRROOT}/grizzly \
   WARTHOG=${VTRROOT}/warthog \
-  HUNTER=${VTRROOT}/hunter
+  HUNTER=${VTRROOT}/hunter \
+  VTRUI=${VTRSRC}/main/src/vtr_gui/vtr_gui/vtr-gui \
+  MAKEFLAGS="-j2"
 
-ENV VTRUI=${VTRSRC}/main/src/vtr_gui/vtr_gui/vtr-gui
-ENV MAKEFLAGS="-j2"
-
-RUN echo "alias build_ui='npm --prefix ${VTRUI} install ${VTRUI}; npm --prefix ${VTRUI} run build'" >> ~/.bashrc
-RUN echo "alias build_vtr='source /opt/ros/humble/setup.bash; cd ${VTRSRC}/main; colcon build --symlink-install'" >> ~/.bashrc
+RUN echo "alias build_ui='npm --prefix ${VTRUI} install ${VTRUI}; npm --prefix ${VTRUI} run build'" >> ~/.bashrc \
+ && echo "alias build_vtr='source /opt/ros/humble/setup.bash; cd ${VTRSRC}/main; colcon build --symlink-install'" >> ~/.bashrc
 
 ## Switch to root to install dependencies
 USER 0:0
 
-## Dependencies
-RUN apt update && apt upgrade -q -y
-RUN apt update && apt install -q -y cmake git build-essential lsb-release curl gnupg2
-RUN apt update && apt install -q -y libboost-all-dev libomp-dev
-RUN apt update && apt install -q -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev
-RUN apt update && apt install -q -y freeglut3-dev
-RUN apt update && apt install -q -y python3 python3-distutils python3-pip
-RUN apt update && apt install -q -y libeigen3-dev
-RUN apt update && apt install -q -y libsqlite3-dev sqlite3
-RUN apt install -q -y libc6-dbg gdb valgrind
-
-## Dependency for navtech radar
-RUN apt update && apt install -q -y apt libbotan-2-dev
-
+## Dependencies, and
+## Dependency for navtech radar, and
 ## Install PROJ (8.2.0) (this is for graph_map_server in vtr_navigation)
-RUN apt update && apt install -q -y cmake libsqlite3-dev sqlite3 libtiff-dev libcurl4-openssl-dev
-RUN mkdir -p ${HOMEDIR}/proj && cd ${HOMEDIR}/proj \
+RUN apt update && apt upgrade -q -y \
+    cmake git build-essential lsb-release curl gnupg2 \
+    libboost-all-dev libomp-dev \
+    libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev \
+    freeglut3-dev \
+    python3 python3-distutils python3-pip \
+    libeigen3-dev \
+    libsqlite3-dev sqlite3 \
+    libc6-dbg gdb valgrind \
+    \
+    libbotan-2-dev \
+    \
+    cmake libsqlite3-dev sqlite3 libtiff-dev libcurl4-openssl-dev \
+  && mkdir -p ${HOMEDIR}/proj && cd ${HOMEDIR}/proj \
   && git clone https://github.com/OSGeo/PROJ.git . && git checkout 8.2.0 \
   && mkdir -p ${HOMEDIR}/proj/build && cd ${HOMEDIR}/proj/build \
   && cmake .. && cmake --build . -j${NUMPROC} --target install
 ENV LD_LIBRARY_PATH=/usr/local/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
 
 
 ## Install ROS2
@@ -75,24 +73,18 @@ RUN apt install -q -y locales \
   && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 # Add ROS2 key and install from Debian packages
+## Install VTR specific ROS2 dependencies
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg \
   && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null \
-  && apt update && apt install -q -y ros-humble-desktop
-
-## Install VTR specific ROS2 dependencies
-RUN apt update && apt install -q -y \
+  && apt update && apt install -q -y ros-humble-desktop \
   ros-humble-xacro \
   ros-humble-vision-msgs \
   ros-humble-vision-opencv \
   ros-humble-perception-pcl ros-humble-pcl-ros \
   ros-humble-rmw-cyclonedds-cpp \
-  ros-humble-rosbag2-storage-mcap
-
-## Install other ROS2 dependencies
-RUN apt install -q -y \
-  ros-humble-ros-gz
-
-RUN apt install ros-humble-tf2-tools
+  ros-humble-rosbag2-storage-mcap \
+  ros-humble-ros-gz \
+  ros-humble-tf2-tools
 
 ## Install misc dependencies
 RUN apt update && apt install -q -y \
@@ -107,13 +99,13 @@ RUN apt update && apt install -q -y \
   unzip \
   clang-format
 
-## Install Node more recent version
-RUN curl -sL https://deb.nodesource.com/setup_25.x -o /tmp/nodesource_setup.sh
-RUN bash /tmp/nodesource_setup.sh
-RUN apt install nodejs
-
+## Install Node more recent version, and
+## utilities added by sherry, and
 ## Install python dependencies
-RUN pip3 install \
+RUN curl -sL https://deb.nodesource.com/setup_25.x -o /tmp/nodesource_setup.sh \
+ && bash /tmp/nodesource_setup.sh \
+ && apt install -y wget nano nodejs \
+ && pip3 install \
   tmuxp \
   pyyaml \
   pyproj \
@@ -127,25 +119,15 @@ RUN pip3 install \
   websocket-client
 
 
-#added by sherry
-
-RUN apt install wget
-RUN apt install nano
-
 ## sam install opencv 4.10.0
-RUN apt install -q -y libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python3-dev python3-numpy
+RUN apt install -q -y libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python3-dev python3-numpy \
+ && mkdir -p ${HOMEDIR}/opencv && cd ${HOMEDIR}/opencv \
+    && git clone https://github.com/opencv/opencv.git . \
+    && cd ${HOMEDIR}/opencv && git checkout 4.10.0 \
+    && mkdir -p ${HOMEDIR}/opencv_contrib && cd ${HOMEDIR}/opencv_contrib \
+    && git clone https://github.com/opencv/opencv_contrib.git . \
+    && cd ${HOMEDIR}/opencv_contrib && git checkout 4.10.0 
 
-
-RUN mkdir -p ${HOMEDIR}/opencv && cd ${HOMEDIR}/opencv \
-&& git clone https://github.com/opencv/opencv.git . 
-
-RUN cd ${HOMEDIR}/opencv && git checkout 4.10.0
-RUN mkdir -p ${HOMEDIR}/opencv_contrib && cd ${HOMEDIR}/opencv_contrib \
-&& git clone https://github.com/opencv/opencv_contrib.git . 
-RUN cd ${HOMEDIR}/opencv_contrib && git checkout 4.10.0 
-
-
-RUN apt install -q -y build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python3-dev python3-numpy
 # # generate Makefiles (note that install prefix is customized to: /usr/local/opencv_cuda)
 
 RUN mkdir -p ${HOMEDIR}/opencv/build && cd ${HOMEDIR}/opencv/build \
@@ -178,28 +160,27 @@ RUN mkdir -p ${HOMEDIR}/.matplotcpp && cd ${HOMEDIR}/.matplotcpp \
   
   
 ##Install LibTorch
-RUN curl -L https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.0%2Bcu118.zip --output libtorch.zip
-RUN unzip libtorch.zip -d /opt/torch && rm /libtorch.zip
-ENV TORCH_LIB=/opt/torch/libtorch
-ENV LD_LIBRARY_PATH=$TORCH_LIB/lib:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-ENV CMAKE_PREFIX_PATH=$TORCH_LIB:$CMAKE_PREFIX_PATH
+RUN curl -L https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.0%2Bcu118.zip --output libtorch.zip \
+ && unzip libtorch.zip -d /opt/torch && rm /libtorch.zip
+ENV TORCH_LIB=/opt/torch/libtorch \
+    LD_LIBRARY_PATH=$TORCH_LIB/lib:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}} \
+    CMAKE_PREFIX_PATH=$TORCH_LIB:$CMAKE_PREFIX_PATH
   
-RUN apt install swig liblapack-dev libmetis-dev -y -q --install-recommends
-RUN mkdir -p ${HOMEDIR}/.casadi && cd ${HOMEDIR}/.casadi \
-  && git clone https://github.com/utiasASRL/casadi.git .
-RUN cd ${HOMEDIR}/.casadi \
+# Casadi install
+RUN apt install swig liblapack-dev libmetis-dev -y -q --install-recommends \
+  && mkdir -p ${HOMEDIR}/.casadi && cd ${HOMEDIR}/.casadi \
+  && git clone https://github.com/utiasASRL/casadi.git . \
+  && cd ${HOMEDIR}/.casadi \
   && mkdir -p build && cd build \
   && cmake build -DWITH_PYTHON=ON -DWITH_PYTHON3=ON -DWITH_IPOPT=ON -DWITH_BUILD_IPOPT=ON -DWITH_BUILD_REQUIRED=ON -DWITH_SELFCONTAINED=ON .. \
   && make -j${NUMPROC} install
-ENV PYTHONPATH=${PYTHONPATH}:/usr/local
-ENV LD_LIBRARY_PATH=/usr/local/casadi:${LD_LIBRARY_PATH}
+
+ENV PYTHONPATH=${PYTHONPATH}:/usr/local \
+    LD_LIBRARY_PATH=/usr/local/casadi:${LD_LIBRARY_PATH}
 
 
 ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility,graphics
-RUN apt install -q -y vim htop
-RUN apt install -y ros-humble-rmw-zenoh-cpp
 
-RUN apt install gosu
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
@@ -218,10 +199,10 @@ RUN apt install -q -y \
   ros-humble-ros-gz-sim-demos \
   ros-humble-teleop-twist-keyboard \
   ros-humble-topic-tools \
+  ros-humble-rmw-zenoh-cpp \
   libignition-gazebo6-dev \
   libignition-plugin-dev \
   ripgrep \
   mesa-utils \
-
-## Switch to specified user
-USER ${USERID}:${GROUPID}
+  vim htop \
+  gosu \
