@@ -1,0 +1,348 @@
+header {
+  stamp {
+    sec: 50
+    nsec: 837000000
+  }
+}
+pose {
+  name: "ground_plane"
+  id: 4
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "quadcopter"
+  id: 8
+  position {
+    x: -5.4887884387633527e-20
+    y: 8.1368104069865315e-19
+    z: 0.054999580415475563
+  }
+  orientation {
+    x: -7.2999724466312748e-18
+    y: -4.0021349552674662e-20
+    z: -2.3098210309693263e-19
+    w: 1
+  }
+}
+pose {
+  name: "link"
+  id: 5
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "base_link"
+  id: 9
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "rotor_0"
+  id: 29
+  position {
+    x: 0.13
+    y: -0.22
+    z: 0.023000000000000007
+  }
+  orientation {
+    x: 9.4845943641163193e-42
+    y: -1.6861629882725528e-36
+    z: 2.3698836921113151e-22
+    w: 1
+  }
+}
+pose {
+  name: "rotor_1"
+  id: 32
+  position {
+    x: -0.13
+    y: 0.2
+    z: 0.023000000000000007
+  }
+  orientation {
+    x: 9.484594361601467e-42
+    y: -1.6861629882725528e-36
+    z: 2.3698836914829804e-22
+    w: 1
+  }
+}
+pose {
+  name: "rotor_2"
+  id: 35
+  position {
+    x: 0.13
+    y: 0.22
+    z: 0.023000000000000007
+  }
+  orientation {
+    x: 9.4845950398142071e-42
+    y: -1.6861629882725528e-36
+    z: 2.3698838609455563e-22
+    w: 1
+  }
+}
+pose {
+  name: "rotor_3"
+  id: 38
+  position {
+    x: -0.13
+    y: -0.2
+    z: 0.023000000000000007
+  }
+  orientation {
+    x: 9.4845950313639378e-42
+    y: -1.6861629882725528e-36
+    z: 2.3698838588342556e-22
+    w: 1
+  }
+}
+pose {
+  name: "visual"
+  id: 6
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "base_link_inertia_visual"
+  id: 10
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "marker_visual_1"
+  id: 11
+  position {
+    x: -0.07
+    z: 0.065
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "downward_flashlight_visual"
+  id: 12
+  position {
+    x: -0.043704
+    z: 0.087914
+  }
+  orientation {
+    x: -0.0705647211532872
+    y: 0.070621082719918044
+    z: -0.70329545663387671
+    w: 0.7038528137914718
+  }
+}
+pose {
+  name: "left_flashlight_visual"
+  id: 13
+  position {
+    x: -0.061985
+    y: 0.060826
+    z: 0.046102
+  }
+  orientation {
+    x: 0.024134298373132024
+    y: -0.017811969273442647
+    z: -0.59291002475805754
+    w: 0.80470986817239809
+  }
+}
+pose {
+  name: "marker_visual_2"
+  id: 14
+  position {
+    x: -0.08
+    y: 0.037
+    z: 0.04
+  }
+  orientation {
+    x: -0.49750313770421944
+    y: -0.049916814183035604
+    z: 0.086458213844582063
+    w: 0.86169827485905848
+  }
+}
+pose {
+  name: "right_flashlight_visual"
+  id: 15
+  position {
+    x: -0.061985
+    y: -0.060826
+    z: 0.046102
+  }
+  orientation {
+    x: 0.017792579034564569
+    y: -0.024148597032958279
+    z: -0.80423660796446528
+    w: 0.59355180717646694
+  }
+}
+pose {
+  name: "marker_visual_3"
+  id: 16
+  position {
+    x: -0.08
+    y: -0.035
+    z: 0.04
+  }
+  orientation {
+    x: 0.49937618923490884
+    y: -0.024989637631381182
+    z: -0.043283199651127632
+    w: 0.86494248610195668
+  }
+}
+pose {
+  name: "camera_visual"
+  id: 17
+  position {
+    x: 0.1
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "right_light_sourceVisual"
+  id: 20
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "downward_flashlight_sourceVisual"
+  id: 22
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "left_flashlight_sourceVisual"
+  id: 24
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "rotor_0_visual"
+  id: 30
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "rotor_1_visual"
+  id: 33
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "rotor_2_visual"
+  id: 36
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "rotor_3_visual"
+  id: 39
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "sunVisual"
+  id: 46
+  position {
+  }
+  orientation {
+    w: 1
+  }
+}
+pose {
+  name: "right_light_source"
+  id: 19
+  position {
+    x: 0.01
+    y: -0.08
+    z: 0.05
+  }
+  orientation {
+    x: 0.11217909558639032
+    y: 0.71930488126525971
+    z: 0.10604907434878354
+    w: -0.67732557321509457
+  }
+}
+pose {
+  name: "downward_flashlight_source"
+  id: 21
+  position {
+    x: 0.03
+    z: 0.075
+  }
+  orientation {
+    x: -0.0038708092520891879
+    y: -0.63297584339148971
+    z: -0.0031649055912146657
+    w: 0.77415539905833186
+  }
+}
+pose {
+  name: "left_flashlight_source"
+  id: 23
+  position {
+    x: 0.01
+    y: 0.08
+    z: 0.05
+  }
+  orientation {
+    x: 0.10540034383323356
+    y: -0.7203293893896362
+    z: 0.098850843010149278
+    w: 0.678413479478093
+  }
+}
+pose {
+  name: "sun"
+  id: 45
+  position {
+    z: 10
+  }
+  orientation {
+    w: 1
+  }
+}
+

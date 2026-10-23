@@ -19,3 +19,6 @@ __pycache__/
 #auto generated C++ code for MPC
 main/src/vtr_path_planning/include/vtr_path_planning/mpc/generated/*
 main/src/vtr_path_planning/src/mpc/generated/*
+
+# vim
+*.swp

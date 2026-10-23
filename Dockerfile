@@ -88,6 +88,10 @@ RUN apt update && apt install -q -y \
   ros-humble-rmw-cyclonedds-cpp \
   ros-humble-rosbag2-storage-mcap
 
+## Install other ROS2 dependencies
+RUN apt install -q -y \
+  ros-humble-ros-gz
+
 RUN apt install ros-humble-tf2-tools
 
 ## Install misc dependencies
@@ -199,6 +203,25 @@ RUN apt install gosu
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+## Add OSR Foundation keys https://gazebosim.org/api/plugin/2/installation.html
+RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' \
+  && wget http://packages.osrfoundation.org/gazebo.key -O - | apt-key add - \
+  && apt update
+
+## Custom ros installs (move up later)
+RUN apt install -q -y \
+  ros-humble-ros-gz-bridge \
+  ros-humble-ros-gz-image \
+  ros-humble-ros-gz-interfaces \
+  ros-humble-ros-gz-sim \
+  ros-humble-ros-gz-sim-demos \
+  ros-humble-teleop-twist-keyboard \
+  ros-humble-topic-tools \
+  libignition-gazebo6-dev \
+  libignition-plugin-dev \
+  ripgrep \
+  mesa-utils \
 
 ## Switch to specified user
 USER ${USERID}:${GROUPID}

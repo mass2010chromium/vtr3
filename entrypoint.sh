@@ -5,7 +5,7 @@ set -e
 # Fetch host UID, GID, and Username from env variables, or default to 1000/asrl
 USER_ID=${USER_ID:-1000}
 GROUP_ID=${GROUP_ID:-1000}
-USER_NAME=${USER_NAME:-asrl}
+USER_NAME=${USER_NAME:-hppeng}
 
 echo "Setting up container user: $USER_NAME ($USER_ID:$GROUP_ID)"
 
@@ -24,10 +24,10 @@ else
 fi
 
 # 3. Ensure the home directory has the correct permissions
-chown -R "$USER_ID:$GROUP_ID" "/home/$USER_NAME"
+#chown -R "$USER_ID:$GROUP_ID" "/home/$USER_NAME"
 
 export HOME="/home/$USER_NAME"
-export VTRROOT=${HOME}/ASRL/vtr3
+export VTRROOT=${HOME}/workspace/VTR3
 export VTRSRC=${VTRROOT}/src \
   VTRDATA=${VTRROOT}/data \
   VTRTEMP=${VTRROOT}/temp \
