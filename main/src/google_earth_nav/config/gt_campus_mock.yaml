@@ -1,0 +1,10 @@
+map:
+    file: maps/gt_campus.kml
+    frame: 'larger_world'
+    # lat, lon, height
+    origin: [33.77499961853027, -84.39999771118164, 316]
+
+robot:
+    frame: 'vehicle_blue/chassis'
+    
+tolerance: 30

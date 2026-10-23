@@ -55,6 +55,7 @@ class WhereAmI(Node):
 
         root_dir = get_package_share_directory("google_earth_nav")
         config_file = self.get_parameter('config').get_parameter_value().string_value
+        print(f"Config: {config_file}")
         with open(os.path.join(root_dir, config_file)) as _config:
             self.config = yaml.safe_load(_config)
 

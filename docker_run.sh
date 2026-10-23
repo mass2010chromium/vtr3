@@ -10,7 +10,7 @@
 # QT_QPA_PLATFORM: Apparently X11 is more stable than Wayland/EGL for WSL2. Force usage of X11.
 # OGRE_RTT_MODE: Maybe this can be omitted. May help with bugs in WSL2 Frame Buffer Objects
 # LD_LIBRARY_PATH hacking: Use microsoft's GPU accelerated graphics before finding CPU/llvmpipe ones.
-docker run -it --rm --name vtr3 --entrypoint bash \
+docker run -it --name vtr3 --entrypoint bash \
   --gpus all \
   --privileged \
   --network=host \
