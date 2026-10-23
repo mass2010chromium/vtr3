@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ex="http://earth.google.com/kml/ext">
+<Document id="1cQbl4zbAkojpDXaBTY1WQ3FHIFMsImyC">
+	<ex:extension>base64;Co4BCoEBCn8KAggBEnkKdwokCiAKAwjQDxoHCNLtZRD_ASEAAAAAAADwPykAAAAAAAAAABgAEg8KCAitgO8HEP8BEKAfGAAaGgoHCP___wcQQBIICK2A7wcQ_wEYoB8gACgAIgkIARIFCP___wcqFwgBEggI____BxD_ARkAAAAAAADwPyAAEgQIARAAGgIIAA</ex:extension>
+	<name>GT Campus</name>
+	<gx:CascadingStyle kml:id="__managed_style_0B552EB42B429C65D38F_highlight">
+		<ex:extension>base64;EgIYAQ</ex:extension>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0B552EB42B429C65D38F_normal">
+		<ex:extension>base64;EgIYAQ</ex:extension>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0B552EB42B429C65D38F">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_0B552EB42B429C65D38F_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0B552EB42B429C65D38F_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="070A1D455F429C65D311">
+		<name>tsrb</name>
+		<LookAt>
+			<longitude>-84.38991484829297</longitude>
+			<latitude>33.77724486681508</latitude>
+			<altitude>318.2267685141189</altitude>
+			<heading>7.119938143106749</heading>
+			<tilt>0.1939223870297308</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>48.02699316695907</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.38988205121555,33.77719553791179,313.6011618855985</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A48B4CB66429C67BAF9">
+		<name>Chandler Stadium</name>
+		<LookAt>
+			<longitude>-84.3957872884294</longitude>
+			<latitude>33.77705717829708</latitude>
+			<altitude>291.2474399630783</altitude>
+			<heading>-70.01615258988252</heading>
+			<tilt>25.90952314137791</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>298.9655363817292</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.39520518921327,33.77718911415461,285.8422695433626</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="074A3383CF429C688BD8">
+		<name>Klaus</name>
+		<LookAt>
+			<longitude>-84.39660795923254</longitude>
+			<latitude>33.77705991429619</latitude>
+			<altitude>298.649703566118</altitude>
+			<heading>-3.767798078743607</heading>
+			<tilt>15.53833892817058</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>152.3633729496942</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.3965215697438,33.77696014283747,284.6433151085649</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B571046B4429C691AFF">
+		<name>Library North</name>
+		<LookAt>
+			<longitude>-84.39650123659275</longitude>
+			<latitude>33.77512273772299</latitude>
+			<altitude>307.1095843951063</altitude>
+			<heading>-177.3012126958448</heading>
+			<tilt>27.59315486845593</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>93.12608188919512</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.39657167784219,33.77524185356751,284.3342699315807</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08F9047B17429C696914">
+		<name>Library South</name>
+		<LookAt>
+			<longitude>-84.39652226976602</longitude>
+			<latitude>33.774163244394</latitude>
+			<altitude>302.4739057401869</altitude>
+			<heading>21.19629709959556</heading>
+			<tilt>17.06985120783431</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>108.8030566377529</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.39660002165962,33.77405896188917,289.1476962379277</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DEF7C8DBF429C6A0606">
+		<name>Student Center</name>
+		<LookAt>
+			<longitude>-84.3985478276098</longitude>
+			<latitude>33.774063827483</latitude>
+			<altitude>290.894371974775</altitude>
+			<heading>-96.94601030201379</heading>
+			<tilt>11.52408900552347</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>89.2726089860389</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.398469259104,33.7740303635876,290.5237181527152</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02778BC8A6429C6ACDAB">
+		<name>Bunger</name>
+		<LookAt>
+			<longitude>-84.3979869459381</longitude>
+			<latitude>33.77533893680556</latitude>
+			<altitude>289.1526965729873</altitude>
+			<heading>-36.16619702884075</heading>
+			<tilt>50.18832370196366</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>88.16583805581104</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.39795887603772,33.77532377578825,289.1432270849514</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E11E01879429C6B4A54">
+		<name>Van Leer</name>
+		<LookAt>
+			<longitude>-84.39720652529812</longitude>
+			<latitude>33.77594542562679</latitude>
+			<altitude>300.6301752404741</altitude>
+			<heading>-86.94147561991583</heading>
+			<tilt>12.3578732962053</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>103.2238028638676</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.39722407577538,33.77596098314434,300.6301732981619</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B1388D20E429C6D33E4">
+		<name>Willage</name>
+		<LookAt>
+			<longitude>-84.40445940213974</longitude>
+			<latitude>33.77942674853588</latitude>
+			<altitude>288.2188213430126</altitude>
+			<heading>-176.6087896062324</heading>
+			<tilt>3.959043521636307</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>122.1742368860032</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.40439645539728,33.77938636795574,287.6110067941303</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C39FD1231429C6DA047">
+		<name>CRC</name>
+		<LookAt>
+			<longitude>-84.40308559742871</longitude>
+			<latitude>33.77571897554511</latitude>
+			<altitude>305.4711248541087</altitude>
+			<heading>-87.0767283163146</heading>
+			<tilt>0.1145822254335253</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>122.7086891496402</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.40295273608254,33.77562366386278,303.3828282968697</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02A3C6A28E429C6E56C6">
+		<name>MRDC</name>
+		<LookAt>
+			<longitude>-84.40088218253497</longitude>
+			<latitude>33.77699931022399</latitude>
+			<altitude>305.8747265602531</altitude>
+			<heading>-16.92699793340514</heading>
+			<tilt>0.3890760611314623</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>98.45063122931609</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.401044404788,33.77691170385213,296.6606762863965</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E2A278BB2429C6EC884">
+		<name>Marcus Nano</name>
+		<LookAt>
+			<longitude>-84.3982734053844</longitude>
+			<latitude>33.7787698063512</latitude>
+			<altitude>308.1323502582323</altitude>
+			<heading>-84.31266867512709</heading>
+			<tilt>4.000724563446733</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>121.7016108686585</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.39823629067367,33.77893411242125,284.9117483923987</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0508BF24E9429C6FCF94">
+		<name>GTRI</name>
+		<LookAt>
+			<longitude>-84.40172474257419</longitude>
+			<latitude>33.78094176773688</latitude>
+			<altitude>296.7257453114073</altitude>
+			<heading>270.1830760460767</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>77.07358367581038</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0B552EB42B429C65D38F</styleUrl>
+		<Point>
+			<coordinates>-84.40169440126998,33.7809809092066,296.8261908209701</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
